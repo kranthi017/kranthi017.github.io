@@ -57,7 +57,35 @@
 								audio output to a monitor, and data logging with associated meta-data,etc. Python is a language
 								with strong generality which supports almost all kinds of platforms. This project will be able to
 								run on different terminals including Mac, Windows and by extension can be used in
-								microcontrollers like Raspberry Pi and Arduino.<br>
+								microcontrollers like Raspberry Pi and Arduino.<br></p><p>
+
+								By the end of the project, we could deliver major parts of the requirements before the pandemic hit.
+								We first finished the basic functions of an oscilloscope including displaying audio input,
+								land input, and input from the ADC converter of USB6001 NI. So far, we can plot any waveform
+								from an ADC converter on Windows platform, unfortunately, we cannot solve the problem of
+								buffer overflow when we run the same program on macOS. And the current version of NI
+								interface software for data acquisition device we used does not support any macOS that is later
+								than 10.10v. Hence, using a NI device for data reading is not plausible on macOS. But the
+								oscilloscope we built can support any python editor on PC including but not limited to spyder
+								and pycharm.<br></p><p>
+								The input scale precision can be configured from 1ms to 1s, and voltage level can be
+								configured from 10mV to 5V. Trigger level is also adjustable. For the output digital signal we can
+								have a precision at around 10ms with respect to the built-in function’s execution time bottleneck
+								in python. We then built three modes in this program to switch from input and output.
+								Theoretically, simultaneous input and output is possible but requires multi thread programming,
+								and in this scenario, the execution time of each function we used in this program is highly
+								unpredictable. This is why we set up three different modes controlled by three buttons in order
+								to transform from different input and output scenarios. Apparently, using simple input or output
+								mode alone at one time is guaranteed to give the precision we want and applying input and
+								output simultaneously is not recommended.<br></p><p>
+
+								In conclusion, we design and test an oscilloscope with python as source code. And this
+								oscilloscope can be used and configured with an NI data acquisition device on PC, which is free
+								of authorization fee and robust in GUI. Future update and expansion of this oscilloscope can be
+								performed by adding more signal processing functions and data saving functions to it.<br></p><p>
+
+								This project was done in a group of three with the others being Chen Ziqi, Wangzekun Gao. Further details and
+								code of the project can be found <a href="">here</a>.
 
 
 
@@ -66,54 +94,49 @@
 
 					</div>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<section>
-							<form method="post" action="#">
-								<div class="fields">
-									<div class="field">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field">
-										<label for="email">Email</label>
-										<input type="text" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="3"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
-							</form>
-						</section>
-						<section class="split contact">
-							<section class="alt">
-								<h3>Address</h3>
-								<p>1234 Somewhere Road #87257<br />
-								Nashville, TN 00000-0000</p>
-							</section>
+					<!-- Footer -->
+						<footer id="footer">
 							<section>
-								<h3>Phone</h3>
-								<p><a href="#">(000) 000-0000</a></p>
+								<form method="post" action="mailto:km853@cornell.edu">
+									<div class="fields">
+										<div class="field">
+											<label for="name">Name</label>
+											<input type="text" name="name" id="name" />
+										</div>
+										<div class="field">
+											<label for="email">Email</label>
+											<input type="text" name="email" id="email" />
+										</div>
+										<div class="field">
+											<label for="message">Message</label>
+											<textarea name="message" id="message" rows="3"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send Message" /></li>
+									</ul>
+								</form>
 							</section>
-							<section>
-								<h3>Email</h3>
-								<p><a href="#">info@untitled.tld</a></p>
+							<section class="split contact">
+								<section class="alt">
+									<h3>Address</h3>
+									<p>Troy, MI, 48084</p>
+								</section>
+								<section>
+									<h3>Email</h3>
+									<p><a href="#">kranthikumar.017@gmail.com</a></p>
+								</section>
+								<section>
+									<h3>Social</h3>
+									<ul class="icons alt">
+										<li><a href="http://www.linkedin.com/in/kranthi017" class="icon brands alt fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://www.facebook.com/madhavaram.kumar" class="icon brands alt fa-facebook-f" target="_blank"><span class="label">Facebook</span></a></li>
+										<li><a href="https://www.instagram.com/oblivion_017/?hl=en" class="icon brands alt fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+										<li><a href="https://github.com/kranthi017" class="icon brands alt fa-github" target="_blank"><span class="label" target="_blank">GitHub</span></a></li>
+									</ul>
+								</section>
 							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</section>
-						</section>
-					</footer>
+						</footer>
 
 				<!-- Copyright -->
 					<div id="copyright">
