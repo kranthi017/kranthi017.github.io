@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Personal website: Kranthi-MRI Segmentation</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="#" class="logo">MRI Segmentation</a>
+					</header>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul class="links">
+								<li><a href="index.html">Home</a></li>
+								<li class="active"><a href="projects.html">Projects</a></li>
+								<li><a href="#">Stuff</a></li>
+							</ul>
+							<ul class="icons">
+								<li><a href="http://www.linkedin.com/in/kranthi017" class="icon brands fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+								<li><a href="https://www.facebook.com/madhavaram.kumar" class="icon brands fa-facebook-f" target="_blank"><span class="label">Facebook</span></a></li>
+								<li><a href="https://www.instagram.com/oblivion_017/?hl=en" class="icon brands fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+								<li><a href="https://github.com/kranthi017" class="icon brands fa-github" target="_blank"><span class="label" >GitHub</span></a></li>
+							</ul>
+						</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">September 9, 2020</span>
+									<h2>MRI Image Registration and Segmentation</h2>
+									<p>In this project, I developed an algorithm that will automatically <br>
+									segment a brain MRI scan into anatomical regions of interest. For the sake of simplicity, I only worked on mid-coronal Slices. <br>
+								  </p>
+								</header>
+
+							<div class="image left"><img src="images/MRI1.jpg" alt="" /></div>
+								<p> For this project, I had access to some MRI scans, few of which had manual segmentation given while the task was to
+									find the segmentation for the rest. Splitting the task, initially I had to register the given training images using
+									four parameters: (global scale, rotation, and translations along two axes). Once I registered the training images over
+									the given two validation images I then registered the segmented images of the same scans. Finding the mode of the six
+									segmented images gave a final automatic segmented image whose accuracy was measured using Jaccard index wrt the validation images
+									which were manually segmented.</p>
+
+								<p>Once the functions were finalised, I then proceeded to register the training + validation images wrt the testing images given.
+									The registration parameters were then used to transform the segmented images and using various fusion methods, I then segmented the
+								  transformed images. Multiple segments accuracy was then measured with the manually segmented testing images. Further details of the
+									project can be found <a href="https://github.com/kranthi017/mri" target=_blank>here</a>. <br>
+								</p>
+							</section>
+
+					</div>
+
+					<!-- Footer -->
+						<footer id="footer">
+							<section>
+								<form method="post" action="mailto:km853@cornell.edu">
+									<div class="fields">
+										<div class="field">
+											<label for="name">Name</label>
+											<input type="text" name="name" id="name" />
+										</div>
+										<div class="field">
+											<label for="email">Email</label>
+											<input type="text" name="email" id="email" />
+										</div>
+										<div class="field">
+											<label for="message">Message</label>
+											<textarea name="message" id="message" rows="3"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send Message" /></li>
+									</ul>
+								</form>
+							</section>
+							<section class="split contact">
+								<section class="alt">
+									<h3>Address</h3>
+									<p>Troy, MI, 48084</p>
+								</section>
+								<section>
+									<h3>Email</h3>
+									<p><a href="#">kranthikumar.017@gmail.com</a></p>
+								</section>
+								<section>
+									<h3>Social</h3>
+									<ul class="icons alt">
+										<li><a href="http://www.linkedin.com/in/kranthi017" class="icon brands alt fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://www.facebook.com/madhavaram.kumar" class="icon brands alt fa-facebook-f" target="_blank"><span class="label">Facebook</span></a></li>
+										<li><a href="https://www.instagram.com/oblivion_017/?hl=en" class="icon brands alt fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+										<li><a href="https://github.com/kranthi017" class="icon brands alt fa-github" target="_blank"><span class="label" target="_blank">GitHub</span></a></li>
+									</ul>
+								</section>
+							</section>
+						</footer>
+
+						<!-- Copyright -->
+							<div id="copyright">
+								<ul><li>&copy; Kranthi Kumar Madhavaram</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+							</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
