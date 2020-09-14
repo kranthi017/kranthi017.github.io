@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Personal website: Kranthi-Modulation Prediction</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="#" class="logo">Modulation prediction</a>
+					</header>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul class="links">
+								<li><a href="index.html">Home</a></li>
+								<li class="active"><a href="projects.html">Projects</a></li>
+								<li><a href="#">Stuff</a></li>
+							</ul>
+							<ul class="icons">
+								<li><a href="http://www.linkedin.com/in/kranthi017" class="icon brands fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+								<li><a href="https://www.facebook.com/madhavaram.kumar" class="icon brands fa-facebook-f" target="_blank"><span class="label">Facebook</span></a></li>
+								<li><a href="https://www.instagram.com/oblivion_017/?hl=en" class="icon brands fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+								<li><a href="https://github.com/kranthi017" class="icon brands fa-github" target="_blank"><span class="label" >GitHub</span></a></li>
+							</ul>
+						</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">September 14, 2020</span>
+									<h2>Modulation prediction <br>From short signals</h2>
+									<p>In wireless communication (like your cell phone), bits are transmitted by <br>
+										encoding them in periodic analog waveforms called as radio signals called modulation. Several modulation schemes <br>
+										have been developed over the years to help transmit the most amount of digital information possible. <br>
+										A transmitting source uses a pre-decided modulation scheme to communicate with a receiver. However, a receiver is <br>
+										immersed in a sea of signals (noise of all sorts get added up by the time it reaches the receiver). This project aims to build a <br>
+										classifier that predicts the modulation scheme that was used for encoding an incoming signal, given its <br>
+										samples over a short time interval.
+									</p>
+								</header>
+
+
+								<p>
+									The training dataset contained 30k training examples where each training example is a collection of 1024 I/Q samples of a specific modulation scheme recorded
+									through either a simulated or a real noisy channel. Here, I stands for in-phase component and Q stands for quadrature component. The test set is of the same format with 20k training examples. Class labels represent 10 types of
+									modulation schemes namely one frequency modulation scheme FM, four amplitude modulation schemes AM-SSB-SC, AM-DSB-SC, OOK, 4ASK, and five phase modulation
+									schemes BPSK, QPSK, OQPSK, 8PSK, 16PSK. <br> <br>
+
+									The data was first separated into train and test data. The entire project was done using Python and some open source libraries as required. Using Pandas library
+									I loaded the train_labels.csv file and encoded the labels into integers between 0 and 9. I then started off with extracting features of the IQ dataset. Primarily I
+									converted the 1024 X 2 data to 1024 X 1 data by converting into complex, I + jQ. Then applied fft on the complex data. Then I normalized the data by dividing the real
+									and complex parts into their respective maximum values. Then, as suggested, I extracted 36 features of higher order moments of the data. Using these features I applied the following models.
+
+									<ul>
+										<li>SVM: linear, poly (degree:2, 3, 4), Gaussian</li>
+										<li>Bagging: decision trees</li>
+										<li>Boosting: Decision trees</li>
+										<li>Gradient boosted trees, XG boost</li>
+									</ul>
+
+									However, none of these models gave accuracy higher than 40% with my extracted features. I then ventured onto using neural networks. I used Convolutional Neural Networks for training the models.
+									The layers of which were 7 convolutional layers combined with maxpooling to half the data length at every stage using relu activation followed by two fully connected layers with scaled exponential
+									linear unit activation. In between I also employed dropout layers to minimize overfitting of the data.  For this model, I simply fit in the raw I/Q data initially, and then used normalized data
+									(to unit variance) later on. Within this model I changed parameters to find the best accuracy fit with the given data. That is, I varied epochs between 70 – 200 with various steps, changed the
+									kernel size and filter size of the convolutional layers, varied the dropout ratio from 0.1 to 0.5, added padding, with and without bias vector and bias regularization, varied the loss function
+									(categorical cross entropy and such), varied the batch size etc. Finally, I could get the best fit model at 150 epochs with 0.25 dropout, added padding, without bias regularization and
+									 using normalized data.<br><br>
+
+									The entire project was part of a Kaggle competition for Machine Learning course I did. The details of the project can be found <a href="https://www.kaggle.com/c/modulation-prediction/overview">here</a>.
+									The project code and report can be found <a href="">here</a>.
+
+
+								</p>
+							</section>
+
+					</div>
+
+					<!-- Footer -->
+						<footer id="footer">
+							<section>
+								<form method="post" action="mailto:km853@cornell.edu">
+									<div class="fields">
+										<div class="field">
+											<label for="name">Name</label>
+											<input type="text" name="name" id="name" />
+										</div>
+										<div class="field">
+											<label for="email">Email</label>
+											<input type="text" name="email" id="email" />
+										</div>
+										<div class="field">
+											<label for="message">Message</label>
+											<textarea name="message" id="message" rows="3"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send Message" /></li>
+									</ul>
+								</form>
+							</section>
+							<section class="split contact">
+								<section class="alt">
+									<h3>Address</h3>
+									<p>Troy, MI, 48084</p>
+								</section>
+								<section>
+									<h3>Email</h3>
+									<p><a href="#">kranthikumar.017@gmail.com</a></p>
+								</section>
+								<section>
+									<h3>Social</h3>
+									<ul class="icons alt">
+										<li><a href="http://www.linkedin.com/in/kranthi017" class="icon brands alt fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://www.facebook.com/madhavaram.kumar" class="icon brands alt fa-facebook-f" target="_blank"><span class="label">Facebook</span></a></li>
+										<li><a href="https://www.instagram.com/oblivion_017/?hl=en" class="icon brands alt fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+										<li><a href="https://github.com/kranthi017" class="icon brands alt fa-github" target="_blank"><span class="label" target="_blank">GitHub</span></a></li>
+									</ul>
+								</section>
+							</section>
+						</footer>
+
+						<!-- Copyright -->
+							<div id="copyright">
+								<ul><li>&copy; Kranthi Kumar Madhavaram</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+							</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
