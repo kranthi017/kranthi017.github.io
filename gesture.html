@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Personal website: Kranthi-Vending machine</title>
+		<title>Personal website: Kranthi-Gesture to text</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -19,7 +19,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="#" class="logo">Vending machine</a>
+						<a href="#" class="logo">Gesture aid</a>
 					</header>
 
 					<!-- Nav -->
@@ -44,28 +44,35 @@
 							<section class="post">
 								<header class="major">
 									<span class="date">September 14, 2020</span>
-									<h2>Vending Machine: digital payment</h2>
-									<p>My first experience with a 32-bit microcontroller: STM32. It was exciting at<br>
-										every stage of the project to be exploring the possibilites and opportunities a simple microcontroller provides. <br>
-										It was a project-based evaluation course and required for us to develop a prototype of <br>
-										any embeddedy systems solution that involved STM32 at the heart of it. Read on to find more details abou the working of the project.<br>
+									<h2>Gesture to text <br>aid gloves</h2>
+									<p>This project aims at creating an aid to bridge the communication gap that <br>
+										is faced by the deaf and mute individuals with the gifted ones on a day to day basis. We had developed a pair of gloves <br>
+										mounted with 10 flex sensors detecting the bent of particular joints, forming <br>
+										a binary pattern of the input, analysing the pattern, mapping with the alphabets and finally an algorithm to print the alphabets with minimum errors onto a mobile application.
 								  </p>
 								</header>
 
-							<div class="image left"><img src="images/stm32.jpg" alt="" /></div>
+							<div class="image left"><img src="images/pic04.jpg" alt="" /></div>
 								<p>
-									A vending machine that accepts digital payment, offers more than one product was the idea. The craze of digitization of monetary system in India had just picked up and with it, the popularity
-									of Paytm and Google Pay have as well. A combination of STM32l4 microcontroller as the brain, an lcd 16X2 display for status update, two dc motors with gears as actuators to drop the
-									products, a SIM900 module to verify the digital payment were all it took to create a protoype of the project.<br><br>
+									Starting with an initial plan to develop a simple pair of gloves that convert the sign language of the deaf and mute community, we had gone through understanding the problems and technical differences in sign languages.
+									With these problems in mind we had limited our scope to working on specifically the Indian Sign Language (ISL), dictionary of which was recently launched in March 2018.
+									Furthermore, after realising the increasing complexity in decoding the gestures with increasing database of signs we had further zeroed our scope to work on the English alphabets in the ISL.
+									We had, therefore, developed a pair of gloves mounted with 10 flex sensors detecting the bent of particular joints, forming a binary pattern of the input, analysing the pattern,
+									 mapping with the alphabets and finally an algorithm to print the alphabets with minimum errors onto a mobile application. Although the plan was to extend the text to be output as speech
+									 limited knowledge of Android development set us back on this extension.<br> <br>
+								</p>
 
-									The ARM based microcontroller followed a linear flow of algorithm to avoid any crashes since it involved monetary stake. The system stays idle until a button is pressed activating the machine.
-									The user then proceeds to make his combination of products available which is displayed on screen. At the press of the button the system requests for a payment and waits for the confirmation
-									message from the server onto the sim card set to the module. The confirmation message is scanned to detect the amount paid and the cases of overpaid and underpaid are handled by going back to the
-									previous stages as necessary. <br><br>
+							 	<div class="image right"><img src="images/gesture.jpg" alt="" /></div>
+								<p>
 
-									The lcd is communicated via I2C protocol while the SIM900 module uses UART protocol. It is crucial to note that the SIM900 module will have to be reset before starting to use it. This is primarily
-									because the previously saved settings can be tough to debug using STM32, especially if you are using it for the first time like me. I had to bring in an arduino and reset the module. All in all,
-									entire project took me about a month long with about 10-20 hours a week to build. The final code can be found <a href="https://github.com/kranthi017/vending_machine">here</a>.<br> 
+									 the first step for the project was to form the mapping of the alphabets to the 10 bit pattern formed when forming the respective gesture.
+									 The same was made by taking every relaxed joint as a ‘1’ and every bent joint as a ‘0’. Furthermore the detailed analysis of these patterns was essential in developing the algorithms. Particularly, the Hamming Distance
+									 between these patterns. This was done with the help of a simple code on matlab to find the differences in the patterns of the alphabets. Using this we had identified the positions
+									 on the finger joints which provided maximum distance between different gestures. <br> <br>
+
+									 These locations were then equipped with flex sensors paired with a cmparator circuit which differentiated a relaxed and flexed joint. The threshold of the bend for this detection is varied using a potentiometer.
+									 The digital outputs of these circuits is fed into the arduino boards on respective hands which communicated with each other via Bluetooth and processed the data into the alphabet the gesture is mapped to
+									 and sent the output via BT again to a smartphone to be displayed. The detailed report and code for this project can be found <a href="https://github.com/kranthi017/gesture">here</a>.
 								</p>
 							</section>
 
