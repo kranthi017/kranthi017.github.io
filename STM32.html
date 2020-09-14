@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Personal website: Kranthi-Vending machine</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="#" class="logo">Vending machine</a>
+					</header>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul class="links">
+								<li><a href="index.html">Home</a></li>
+								<li class="active"><a href="projects.html">Projects</a></li>
+								<li><a href="#">Stuff</a></li>
+							</ul>
+							<ul class="icons">
+								<li><a href="http://www.linkedin.com/in/kranthi017" class="icon brands fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+								<li><a href="https://www.facebook.com/madhavaram.kumar" class="icon brands fa-facebook-f" target="_blank"><span class="label">Facebook</span></a></li>
+								<li><a href="https://www.instagram.com/oblivion_017/?hl=en" class="icon brands fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+								<li><a href="https://github.com/kranthi017" class="icon brands fa-github" target="_blank"><span class="label" >GitHub</span></a></li>
+							</ul>
+						</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">September 14, 2020</span>
+									<h2>Vending Machine: digital payment</h2>
+									<p>My first experience with a 32-bit microcontroller: STM32. It was exciting at<br>
+										every stage of the project to be exploring the possibilites and opportunities a simple microcontroller provides. <br>
+										It was a project-based evaluation course and required for us to develop a prototype of <br>
+										any embeddedy systems solution that involved STM32 at the heart of it. Read on to find more details abou the working of the project.<br>
+								  </p>
+								</header>
+
+							<div class="image left"><img src="images/stm32.jpg" alt="" /></div>
+								<p>
+									A vending machine that accepts digital payment, offers more than one product was the idea. The craze of digitization of monetary system in India had just picked up and with it, the popularity
+									of Paytm and Google Pay have as well. A combination of STM32l4 microcontroller as the brain, an lcd 16X2 display for status update, two dc motors with gears as actuators to drop the
+									products, a SIM900 module to verify the digital payment were all it took to create a protoype of the project.<br><br>
+
+									The ARM based microcontroller followed a linear flow of algorithm to avoid any crashes since it involved monetary stake. The system stays idle until a button is pressed activating the machine.
+									The user then proceeds to make his combination of products available which is displayed on screen. At the press of the button the system requests for a payment and waits for the confirmation
+									message from the server onto the sim card set to the module. The confirmation message is scanned to detect the amount paid and the cases of overpaid and underpaid are handled by going back to the
+									previous stages as necessary. <br><br>
+
+									The lcd is communicated via I2C protocol while the SIM900 module uses UART protocol. It is crucial to note that the SIM900 module will have to be reset before starting to use it. This is primarily
+									because the previously saved settings can be tough to debug using STM32, especially if you are using it for the first time like me. I had to bring in an arduino and reset the module. All in all,
+									entire project took me about a month long with about 10-20 hours a week to build. The final code can be found <a href="">here</a>.<br> 
+								</p>
+							</section>
+
+					</div>
+
+					<!-- Footer -->
+						<footer id="footer">
+							<section>
+								<form method="post" action="mailto:km853@cornell.edu">
+									<div class="fields">
+										<div class="field">
+											<label for="name">Name</label>
+											<input type="text" name="name" id="name" />
+										</div>
+										<div class="field">
+											<label for="email">Email</label>
+											<input type="text" name="email" id="email" />
+										</div>
+										<div class="field">
+											<label for="message">Message</label>
+											<textarea name="message" id="message" rows="3"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send Message" /></li>
+									</ul>
+								</form>
+							</section>
+							<section class="split contact">
+								<section class="alt">
+									<h3>Address</h3>
+									<p>Troy, MI, 48084</p>
+								</section>
+								<section>
+									<h3>Email</h3>
+									<p><a href="#">kranthikumar.017@gmail.com</a></p>
+								</section>
+								<section>
+									<h3>Social</h3>
+									<ul class="icons alt">
+										<li><a href="http://www.linkedin.com/in/kranthi017" class="icon brands alt fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://www.facebook.com/madhavaram.kumar" class="icon brands alt fa-facebook-f" target="_blank"><span class="label">Facebook</span></a></li>
+										<li><a href="https://www.instagram.com/oblivion_017/?hl=en" class="icon brands alt fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+										<li><a href="https://github.com/kranthi017" class="icon brands alt fa-github" target="_blank"><span class="label" target="_blank">GitHub</span></a></li>
+									</ul>
+								</section>
+							</section>
+						</footer>
+
+						<!-- Copyright -->
+							<div id="copyright">
+								<ul><li>&copy; Kranthi Kumar Madhavaram</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+							</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
