@@ -47,32 +47,30 @@
 									<h2>Localization, Navigation of autonomous robots</h2>
 									<p>Project competition as part of the course Autonomous mobile robots, we had to develop an algorithm <br>
 										to localize the robot, navigate through a half-known environment while figuring out presense of certain walls in the map.<br>
+										The path planning was to be done to reach certain waypoints while avoiding going onto certain other waypoints.<br>
 										The project (done in a team of three) was tested in a MATLAB simulator since the pandemic <br>
 										restricted the lab usage.
 									</p>
 								</header>
 
-							<div class="image left"><img src="images/pic04.jpg" alt="" /></div>
-								<p>
-									Starting with an initial plan to develop a simple pair of gloves that convert the sign language of the deaf and mute community, we had gone through understanding the problems and technical differences in sign languages.
-									With these problems in mind we had limited our scope to working on specifically the Indian Sign Language (ISL), dictionary of which was recently launched in March 2018.
-									Furthermore, after realising the increasing complexity in decoding the gestures with increasing database of signs we had further zeroed our scope to work on the English alphabets in the ISL.
-									We had, therefore, developed a pair of gloves mounted with 10 flex sensors detecting the bent of particular joints, forming a binary pattern of the input, analysing the pattern,
-									 mapping with the alphabets and finally an algorithm to print the alphabets with minimum errors onto a mobile application. Although the plan was to extend the text to be output as speech
-									 limited knowledge of Android development set us back on this extension.<br> <br>
-								</p>
+							<div class="image main"><img src="images/amr.JPG" alt="" /></div>
+								<p>After going through the objectives we split the total project into 3 different parts; Initial position identification and localization throughout,
+									path planning, and optional wall detection and integration. For the initial localization, the first approach was to use depth data and use cross
+									correlation with the data of the waypoints and find the best fit. However, seeing beacon data is more accurate we focused on using that information.
+									And for localization throughout we planned to use EKF with depth data. For path planning, the initial approach was to use RRT but however, midway
+									through we had to change it as our RRT was taking too long to plan its path and sometimes, exceeded the time limit. Hence, we changed our focus to use PRM.
+									As for the optional wall identification, we planned to compare the depth data at the moment the robot’s view includes the optional wall location.
+									Comparing the data with and without the wall, we would detect it’s presence or absence. As for the integration, the three of us split the tasks between us
+									and kept in touch at every step asking and replying with the function inputs and outputs for a smooth integration. <br> <br>
 
-							 	<div class="image right"><img src="images/gesture.jpg" alt="" /></div>
-								<p>
-
-									 the first step for the project was to form the mapping of the alphabets to the 10 bit pattern formed when forming the respective gesture.
-									 The same was made by taking every relaxed joint as a ‘1’ and every bent joint as a ‘0’. Furthermore the detailed analysis of these patterns was essential in developing the algorithms. Particularly, the Hamming Distance
-									 between these patterns. This was done with the help of a simple code on matlab to find the differences in the patterns of the alphabets. Using this we had identified the positions
-									 on the finger joints which provided maximum distance between different gestures. <br> <br>
-
-									 These locations were then equipped with flex sensors paired with a cmparator circuit which differentiated a relaxed and flexed joint. The threshold of the bend for this detection is varied using a potentiometer.
-									 The digital outputs of these circuits is fed into the arduino boards on respective hands which communicated with each other via Bluetooth and processed the data into the alphabet the gesture is mapped to
-									 and sent the output via BT again to a smartphone to be displayed. The detailed report and code for this project can be found <a href="https://github.com/kranthi017/gesture">here</a>.
+									For the project, my part was to localize the robot; initial position and throughout. For the initial localization, I had started off with rotating the robot
+									360 degrees and acquiring about 63 readings of depth data with 9 at every 54 degrees. I found similar data at every waypoint on the map and using cross correlation between
+									the data I found the best fit. That is, I cyclically shifted the 54 readings and found the error with the waypoint data and found the least error waypoint.
+									The orientation was then found by find the number of shifts needed which was linearly related to the angle the robot is away from 0 degrees. However, this approach gave an
+									error rate of about ±10 degrees and so, had to look at beacon information. If the robot found a beacon when rotating about its axis it could easily identify its own coordinates
+									and the orientation using the x and y shift of the beacon. However, the possibilities of robot viewing a beacon in reality while it is outside its view geometrically or
+									having multiple waypoints in a beacon’s view or not having a beacon at all in the robot’s view might pose a problem. And in those cases we rely on using the depth
+									information with cross correlation to localize. As for the localization we used Extended Kalman Filter using depth data througout.
 								</p>
 							</section>
 
