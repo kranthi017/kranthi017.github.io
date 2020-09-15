@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Personal website: Kranthi-MRI Segmentation</title>
+		<title>Personal website: Kranthi-Autonomous mobile robots</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -19,7 +19,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="#" class="logo">MRI Segmentation</a>
+						<a href="#" class="logo">AMR</a>
 					</header>
 
 					<!-- Nav -->
@@ -43,25 +43,36 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<span class="date">September 9, 2020</span>
-									<h2>MRI Image Registration and Segmentation</h2>
-									<p>In this project, I developed an algorithm that will automatically <br>
-									segment a brain MRI scan into anatomical regions of interest. For the sake of simplicity, I only worked on mid-coronal Slices. <br>
+									<span class="date">September 14, 2020</span>
+									<h2>Localization, Navigation<br>of autonomous robots</h2>
+									<p>This project aims at creating an aid to bridge the communication gap that <br>
+										is faced by the deaf and mute individuals with the gifted ones on a day to day basis. We had developed a pair of gloves <br>
+										mounted with 10 flex sensors detecting the bent of particular joints, forming <br>
+										a binary pattern of the input, analysing the pattern, mapping with the alphabets and finally an algorithm to print the alphabets with minimum errors onto a mobile application.
 								  </p>
 								</header>
 
-							<div class="image left"><img src="images/MRI1.jpg" alt="" /></div>
-								<p> For this project, I had access to some MRI scans, few of which had manual segmentation given while the task was to
-									find the segmentation for the rest. Splitting the task, initially I had to register the given training images using
-									four parameters: (global scale, rotation, and translations along two axes). Once I registered the training images over
-									the given two validation images I then registered the segmented images of the same scans. Finding the mode of the six
-									segmented images gave a final automatic segmented image whose accuracy was measured using Jaccard index wrt the validation images
-									which were manually segmented.</p>
+							<div class="image left"><img src="images/pic04.jpg" alt="" /></div>
+								<p>
+									Starting with an initial plan to develop a simple pair of gloves that convert the sign language of the deaf and mute community, we had gone through understanding the problems and technical differences in sign languages.
+									With these problems in mind we had limited our scope to working on specifically the Indian Sign Language (ISL), dictionary of which was recently launched in March 2018.
+									Furthermore, after realising the increasing complexity in decoding the gestures with increasing database of signs we had further zeroed our scope to work on the English alphabets in the ISL.
+									We had, therefore, developed a pair of gloves mounted with 10 flex sensors detecting the bent of particular joints, forming a binary pattern of the input, analysing the pattern,
+									 mapping with the alphabets and finally an algorithm to print the alphabets with minimum errors onto a mobile application. Although the plan was to extend the text to be output as speech
+									 limited knowledge of Android development set us back on this extension.<br> <br>
+								</p>
 
-								<p>Once the functions were finalised, I then proceeded to register the training + validation images wrt the testing images given.
-									The registration parameters were then used to transform the segmented images and using various fusion methods, I then segmented the
-								  transformed images. Multiple segments accuracy was then measured with the manually segmented testing images. Further details of the
-									project can be found <a href="https://github.com/kranthi017/mri" target=_blank>here</a>. <br>
+							 	<div class="image right"><img src="images/gesture.jpg" alt="" /></div>
+								<p>
+
+									 the first step for the project was to form the mapping of the alphabets to the 10 bit pattern formed when forming the respective gesture.
+									 The same was made by taking every relaxed joint as a ‘1’ and every bent joint as a ‘0’. Furthermore the detailed analysis of these patterns was essential in developing the algorithms. Particularly, the Hamming Distance
+									 between these patterns. This was done with the help of a simple code on matlab to find the differences in the patterns of the alphabets. Using this we had identified the positions
+									 on the finger joints which provided maximum distance between different gestures. <br> <br>
+
+									 These locations were then equipped with flex sensors paired with a cmparator circuit which differentiated a relaxed and flexed joint. The threshold of the bend for this detection is varied using a potentiometer.
+									 The digital outputs of these circuits is fed into the arduino boards on respective hands which communicated with each other via Bluetooth and processed the data into the alphabet the gesture is mapped to
+									 and sent the output via BT again to a smartphone to be displayed. The detailed report and code for this project can be found <a href="https://github.com/kranthi017/gesture">here</a>.
 								</p>
 							</section>
 
